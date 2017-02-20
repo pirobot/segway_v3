@@ -91,18 +91,17 @@ DWAPlannerROS:
   sim_granularity:              0.025   #default 0.025
   angular_sim_granularity:      0.025   #default 0.025
   vx_samples:                   6       #default 3
-  vy_samples:                   1       #default 10
   vtheta_samples:               10      #default 10
   controller_frequency:         20.0    #default 20.0
   penalize_negative_x:          true    #default true
 
   # Trajectory scoring parameters
   # The weighting for how much the controller should stay close to the path it was given
-  path_distance_bias:             64.0    #default 32.0
+  path_distance_bias:             32.0    #default 32.0
   # The weighting for how much the controller should attempt to reach its local goal, also controls speed
   goal_distance_bias:             24.0    #default 24.0
   # The weighting for how much the controller should attempt to avoid obstacles
-  occdist_scale:                  2.0     #default 0.01
+  occdist_scale:                  0.01     #default 0.01
   # The distance from the center point of the robot to place an additional scoring point, in meters
   forward_point_distance:         0.5     #default 0.325
   # The amount of time that the robot must stThe absolute value of the veolicty at which to start scaling the robot's footprint,

@@ -12,7 +12,3 @@ global_costmap:
         - {name: obstacles_costmap2d,       type: "costmap_2d::ObstacleLayer"}
         - {name: inflation,                 type: "costmap_2d::InflationLayer"}
   
-
-
-
-

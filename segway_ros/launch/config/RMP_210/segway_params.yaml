@@ -1,4 +1,4 @@
-vel_limit_mps:            0.5
+vel_limit_mps:            3.0
 accel_limit_mps2:         0.500000
 decel_limit_mps2:         0.500000
 dtz_decel_limit_mps2:     1.000000

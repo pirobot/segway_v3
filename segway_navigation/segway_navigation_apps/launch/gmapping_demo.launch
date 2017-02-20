@@ -4,9 +4,9 @@
     <arg name="robot_name" default="$(optenv SEGWAY_PLATFORM_NAME RMP210)"/>
     
     <!--- Run Assisted Teleop -->
-    <include file="$(find segway_navigation_apps)/launch/assisted_teleop_demo.launch" >
+    <!-- include file="$(find segway_navigation_apps)/launch/assisted_teleop_demo.launch" >
         <arg name="robot_name" value="$(arg robot_name)" />
-    </include>
+    </include -->
        
     <!--- Run gmapping -->
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping">

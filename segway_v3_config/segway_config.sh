@@ -30,7 +30,7 @@ export SEGWAY_PLATFORM_NAME=RMP_210
 export NAVIGATOR_ELITE_XYZ="-0.1801 0 0.060625"
 
 #Only the RMP220 and RMP210 can have caster plates so do not enable them if using another model
-export SEGWAY_HAS_REAR_CASTER=false
+export SEGWAY_HAS_REAR_CASTER=true
 export SEGWAY_HAS_FRONT_CASTER=false
 
 #Determines if the platform should use 2D or 3D odometry
@@ -68,24 +68,25 @@ export GPS_RPY="0 0 0"
 
 # 2D scanner configuration for launch files; should change hokuyo
 # to sick if using a SICK LMS1XX
-export SEGWAY_HAS_ONE_2D_LASER=false
+export SEGWAY_HAS_ONE_2D_LASER=true
 export SEGWAY_HAS_SECOND_2D_LASER=false
 
 # Hokuyo configuration (only supports two by default) watch 
 # wavelength on multi-laser systems
 export SEGWAY_LASER1_IS_HOKUYO=false
-export SEGWAY_LASER1_IS_SICK_TIM=false
+export SEGWAY_LASER1_IS_SICK_TIM=true
 export SEGWAY_LASER1_IP=10.66.171.8
 export SEGWAY_LASER1_PORT=2112
 #Uncomment below and comment line above for hokuyo
 #export SEGWAY_LASER1_PORT=10940 
-export LASER1_XYZ="0.62204 0 0.25409"
+#export LASER1_XYZ="0.35 0 0.25409"
+export LASER1_XYZ="0.29345 0 0.26796"
 export LASER1_RPY="0 0 0"
 export LASER1_MAX_RANGE=20.0
 export LASER1_MIN_RANGE=0.01
 export LASER1_PREFIX="front"
 
-export SEGWAY_LASER2_IS_HOKUYO=false
+export SEGWAY_LASER2_IS_HOKUYO=true
 export SEGWAY_LASER2_IS_SICK_TIM=false
 export SEGWAY_LASER2_IP=10.66.171.9
 export SEGWAY_LASER2_PORT=2112

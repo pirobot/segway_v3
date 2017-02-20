@@ -2,16 +2,17 @@
 
 <launch>
     <arg name="no_static_map" default="true"/>
-    <arg name="robot_name" default="$(optenv SEGWAY_PLATFORM_NAME RMP210)"/>
+    <arg name="robot_name" default="$(optenv SEGWAY_PLATFORM_NAME RMP_210)"/>
     <arg name="use_3d" default="$(optenv SEGWAY_USE_VOXEL_GRID false)"/>
     <arg name="use_dwa" default="false"/>
 
-    <node pkg="move_base" type="move_base" name="move_base" clear_params="true" if="$(arg use_3d)">
+    <node pkg="move_base" type="move_base" name="move_base" clear_params="true" if="$(arg use_3d)" output="screen" >
         <!-- Remap into correct namespace for mux -->
         <remap from="cmd_vel" to="/segway/navigation/cmd_vel" />
         
         <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
-        <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+        <!-- param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/ -->
+        <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
         
         <!-- Change the name of the move_base; it is first checked and handled by the client that we're using -->
 		<remap from="move_base/goal" to="move_base_navi/goal" />
@@ -34,12 +35,14 @@
         <rosparam file="$(find segway_navigation_apps)/config/costmaps/costmap_global_map.yaml" command="load" unless="$(arg no_static_map)"/>
     </node> 
     
-    <node pkg="move_base" type="move_base" name="move_base" clear_params="true" unless="$(arg use_3d)">
+    <node pkg="move_base" type="move_base" name="move_base" clear_params="true" unless="$(arg use_3d)" output="screen" >
         <!-- Remap into correct namespace for mux -->
         <remap from="cmd_vel" to="/segway/navigation/cmd_vel" />
         
         <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
         <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
+        <!-- param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/ -->
+
        
         <!-- Change the name of the move_base; it is first checked and handled by the client that we're using -->
 		<remap from="move_base/goal" to="move_base_navi/goal" />
